@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Router } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
@@ -10,7 +10,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-function Router() {
+// Base URL configuration for GitHub Pages
+const basePath = import.meta.env.BASE_URL || "/";
+
+function AppRouter() {
   const [location] = useLocation();
 
   return (
@@ -36,7 +39,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <Router base={basePath}>
+          <AppRouter />
+        </Router>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f5fcf5;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.85;
+    background: 
+      /* Base verde e rossa */
+      linear-gradient(
+        0deg,
+        rgba(0, 100, 0, 0.5) 10px,
+        transparent 10px,
+        transparent 50px,
+        rgba(0, 100, 0, 0.5) 50px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(200, 0, 0, 0.5) 10px,
+        transparent 10px,
+        transparent 50px,
+        rgba(200, 0, 0, 0.5) 50px
+      ),
+      
+      /* Linee incrociate verde scuro */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 48px,
+        rgba(0, 60, 0, 0.5) 48px,
+        rgba(0, 60, 0, 0.5) 52px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 48px,
+        rgba(0, 60, 0, 0.5) 48px,
+        rgba(0, 60, 0, 0.5) 52px
+      ),
+      
+      /* Linee incrociate rosse */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 68px,
+        rgba(150, 0, 0, 0.5) 68px,
+        rgba(150, 0, 0, 0.5) 72px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 68px,
+        rgba(150, 0, 0, 0.5) 68px,
+        rgba(150, 0, 0, 0.5) 72px
+      ),
+      
+      /* Linee bianche diagonali */
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 28px,
+        rgba(255, 255, 255, 0.9) 28px,
+        rgba(255, 255, 255, 0.9) 30px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 28px,
+        rgba(255, 255, 255, 0.9) 28px,
+        rgba(255, 255, 255, 0.9) 30px
+      ),
+      
+      /* Sottili linee nere */
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 78px,
+        rgba(0, 0, 0, 0.8) 78px,
+        rgba(0, 0, 0, 0.8) 80px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 78px,
+        rgba(0, 0, 0, 0.8) 78px,
+        rgba(0, 0, 0, 0.8) 80px
+      );
+    background-size: 100px 100px;
+    background-position: center center;
+  }
+  
+  /* Sfondo per le sezioni con colore bianco */
+  .bg-white {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Sfondo per sezioni con colore neutral-light */
+  .bg-neutral-light {
+    position: relative;
+    background-color: rgba(250, 245, 255, 0.9) !important;
+    backdrop-filter: blur(4px);
+  }
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 274 30% 24%;
+  --muted: 270 5% 96%;
+  --muted-foreground: 272 5% 45%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 274 30% 24%;
+  --card: 0 0% 100%;
+  --card-foreground: 274 30% 24%;
+  --border: 270 6% 90%;
+  --input: 270 6% 90%;
+  --primary: 270 70% 54%;
+  --primary-foreground: 270 100% 99%;
+  --secondary: 270 5% 96%;
+  --secondary-foreground: 274 10% 10%;
+  --accent: 270 5% 96%;
+  --accent-foreground: 274 10% 10%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 60 9% 98%;
+  --ring: 274 30% 24%;
+  --radius: 0.5rem;
+  
+  /* Custom colors */
+  --purple-light: 260 100% 85%;
+  --purple: 270 100% 65%;
+  --purple-dark: 273 41% 43%;
+  --purple-darker: 274 30% 20%;
+  --gold: 43 79% 68%;
+  --neutral-light: 270 100% 98%;
+}
+
+.dark {
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+  --popover: 240 10% 4%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 4%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --primary: 270 70% 54%;
+  --primary-foreground: 270 100% 99%;
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 4% 16%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 5% 84%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neutral-light font-mont text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair font-bold text-purple-dark;
+  }
+}
+
+@layer components {
+  .gallery-image {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .gallery-image:hover {
+    @apply transform -translate-y-1 shadow-lg;
+  }
+  
+  .social-icon {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .social-icon:hover {
+    @apply transform -translate-y-1 scale-110 text-primary;
+  }
+  
+  .menu-item {
+    @apply relative text-purple-dark hover:text-primary transition-colors duration-300;
+  }
+  
+  .menu-item:after {
+    @apply content-[''] absolute w-0 h-0.5 bg-primary left-0 -bottom-0.5 transition-all duration-300;
+  }
+  
+  .menu-item:hover:after, .menu-item.active:after {
+    @apply w-full;
+  }
+  
+  .fade-in {
+    @apply opacity-0 transform translate-y-5;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

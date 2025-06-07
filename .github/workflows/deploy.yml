@@ -33,9 +33,17 @@ jobs:
         
       - name: Build
         run: npm run build
+        env:
+          BASE_URL: /la-bottega-di-moondy/
         
       - name: List build output
-        run: ls -la dist/
+        run: |
+          echo "Checking dist structure:"
+          ls -la dist/ || echo "No dist directory"
+          echo "Checking dist/public structure:"
+          ls -la dist/public/ || echo "No dist/public directory"
+          echo "Checking root files:"
+          find dist/public -name "*.html" -o -name "*.js" -o -name "*.css" | head -10
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -43,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/public'
+          path: './dist/public'
 
   deploy:
     environment:

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+
+const basePath = import.meta.env.BASE_URL || "/";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
